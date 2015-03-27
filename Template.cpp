@@ -55,9 +55,7 @@
 #define bitoff(n, pos) (n & ~(1<<(pos)))
 
 /**Define color**/
-#define WHITE 0
-#define GREY 1
-#define BLACK 2
+enum {WHITE,GREY,BLACK};
 
 /**Sync off with stdio**/
 #define __ cin.sync_with_stdio(false);\
