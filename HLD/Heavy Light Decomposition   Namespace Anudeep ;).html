@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://blog.anudeep2011.com/heavy-light-decomposition/ -->
+<html lang="en-US"><!--<![endif]--><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width"><!-- for mobile -->
+	<title>Heavy Light Decomposition | Namespace Anudeep ;)</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://blog.anudeep2011.com/xmlrpc.php">
+	<link rel="stylesheet" type="text/css" media="all" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/style.css">
+	<link rel="alternate" type="application/rss+xml" title="Namespace Anudeep ;) » Feed" href="http://blog.anudeep2011.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Namespace Anudeep ;) » Comments Feed" href="http://blog.anudeep2011.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Namespace Anudeep ;) » Heavy Light Decomposition Comments Feed" href="http://blog.anudeep2011.com/heavy-light-decomposition/feed/">
+<!-- This site is powered by Shareaholic - https://shareaholic.com -->
+<script id="shr-analytics" data-analytics-script-placeholder="true"></script><script data-cfasync="false" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/shareaholic.js" type="text/javascript" async=""></script><script type="text/javascript" data-cfasync="false">
+  //<![CDATA[
+    (function() {
+      var shr = document.createElement('script');
+      shr.setAttribute('data-cfasync', 'false');
+      shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+      shr.type = 'text/javascript'; shr.async = 'true';
+      shr.onload = shr.onreadystatechange = function() {
+        var rs = this.readyState;
+        if (rs && rs != 'complete' && rs != 'loaded') return;
+        var site_id = 'a13b8c8b1016b840ecb7bcbd4b9f9e96';
+        var page_config = {"apps":{"share_buttons":{"get_share_counts":  function(url, services, cb) {
+    Shareaholic.Utils.ajax({
+      cache: true,
+      cache_ttl: '1 minute',
+      url: 'http://blog.anudeep2011.com/wp-admin/admin-ajax.php',
+      data: { action: 'shareaholic_share_counts_api', url: url, services: services },
+      success: function(res) {
+        if(res && res.data) {
+          cb(res.data, true);
+        }
+      }
+    })
+  }}}};
+        try { Shareaholic.init(site_id, page_config); } catch (e) {}
+      };
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(shr, s);
+    })();
+  //]]>
+</script>
+
+<!-- Shareaholic Content Tags -->
+<meta name="shareaholic:site_name" content="Namespace Anudeep ;)">
+<meta name="shareaholic:language" content="en-US">
+<meta name="shareaholic:url" content="http://blog.anudeep2011.com/heavy-light-decomposition/">
+<meta name="shareaholic:keywords" content="algorithms, segment trees">
+<meta name="shareaholic:article_published_time" content="2014-04-11T15:50:51+00:00">
+<meta name="shareaholic:article_modified_time" content="2014-08-18T20:48:16+00:00">
+<meta name="shareaholic:shareable_page" content="true">
+<meta name="shareaholic:article_author_name" content="anudeep2011">
+<meta name="shareaholic:site_id" content="a13b8c8b1016b840ecb7bcbd4b9f9e96">
+<meta name="shareaholic:wp_version" content="7.4.0.3">
+<meta name="shareaholic:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/CompleteBinaryTree_1000.gif">
+<!-- Shareaholic Content Tags End -->
+
+<!-- Shareaholic Open Graph Tags -->
+<meta property="og:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/CompleteBinaryTree_1000.gif">
+<!-- Shareaholic Open Graph Tags End -->
+<link rel="stylesheet" id="validate-engine-css-css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/validationEngine.jquery.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack-subscriptions-css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/subscriptions.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack-widgets-css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/widgets.css" type="text/css" media="all">
+<link rel="stylesheet" id="zborder-style-css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/style(1).css" type="text/css" media="all">
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/jquery.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/script.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.anudeep2011.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.anudeep2011.com/wp-includes/wlwmanifest.xml"> 
+<link rel="next" title="Persistent segment trees – Explained with spoj problems" href="http://blog.anudeep2011.com/persistent-segment-trees-explained-with-spoj-problems/">
+<meta name="generator" content="WordPress 3.9.1">
+<link rel="canonical" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/Heavy Light Decomposition   Namespace Anudeep ;).html">
+<link rel="shortlink" href="http://wp.me/p4pUrJ-V">
+<link rel="shortcut icon" href="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons-256/simple-black-square-icons-alphanumeric/126202-simple-black-square-icon-alphanumeric-letter-a.png">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Heavy Light Decomposition">
+<meta property="og:url" content="http://blog.anudeep2011.com/heavy-light-decomposition/">
+<meta property="og:description" content="Long post with lot of explanation, targeting novice. If you are aware of how HLD is useful, skip to &quot;Basic Idea&quot;. Why a Balanced Binary Tree is good? A balanced binary tree with N nodes has a heigh...">
+<meta property="article:published_time" content="2014-04-11T15:50:51+00:00">
+<meta property="article:modified_time" content="2014-07-13T04:47:34+00:00">
+<meta property="article:author" content="http://blog.anudeep2011.com/author/anudeep2011/">
+<meta property="og:site_name" content="Namespace Anudeep ;)">
+<meta property="og:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/graph-2.png">
+<meta property="og:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/graph-1.png">
+<meta property="og:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/graph.png">
+<meta property="og:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/Untitled-Diagram-1-1.png">
+<meta property="og:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/Untitled-Diagram-1.png">
+<meta name="twitter:site" content="@jetpack">
+<meta name="twitter:image" content="http://blog.anudeep2011.com/wp-content/uploads/2014/04/CompleteBinaryTree_1000.gif?w=240">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" type="text/css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+		<link rel="stylesheet" id="custom-css-css" type="text/css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/saved_resource">
+		<meta name="google-site-verification" content="_iFO8Vf3dFNNE1bg7dSNwZ-o0z_vdZZTYurSNyCrG_M">
+<script type="text/javascript" id="shr-google-analytics" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/ga.js" data-cfasync="false"></script><script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/jquery.min.js" data-cfasync="false"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/services.css"><script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/shareaholic_tools.js" data-cfasync="false"></script><link rel="stylesheet" type="text/css" href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/share_buttons.css" id="share_buttons_css"></head>
+<body class="single single-post postid-57 single-format-standard">
+
+<div id="header">
+	<div class="navi_and_search">
+		<div class="navi_and_search_inner">
+			<div id="navi">
+				<ul class="navi_dt">
+					<li><a class="home" href="http://blog.anudeep2011.com/" rel="home">Home</a></li>
+									</ul>
+				<ul class="navi_mobile">
+					<li>Menu</li>
+				</ul>
+			</div>
+			<div id="search">
+				<form id="searchform" method="get" action="http://blog.anudeep2011.com/">
+	<input type="text" value="Search ..." onfocus="if (this.value == &#39;Search ...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search ...&#39;;}" size="35" maxlength="50" name="s" id="s">
+	<input type="submit" id="searchsubmit" value="Search">
+</form>			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div class="title_and_rss">
+		<div class="title_and_rss_inner">
+						<p class="site_title">
+				<a href="http://blog.anudeep2011.com/" rel="home">Namespace Anudeep ;)</a>
+			</p>
+			<p class="site_desc">Soft copy of my thoughts and imaginations..</p>
+			<div id="rss">
+				
+				<a class="feed" href="http://blog.anudeep2011.com/feed/" rel="bookmark" title="RSS Feed"><span>RSS Feed</span></a>
+
+				
+									<a class="facebook" href="https://www.facebook.com/anu2011" rel="author" title="Facebook"><span>Facebook</span></a>
+				
+									<a style="background:url(http://www.yiyinglu.com/social/q.png) no-repeat center center;" class="googleplus" href="https://www.quora.com/Anudeep-Nekkanti" rel="publisher" title="Quora"><span>Quora</span></a>
+				
+				<em class="rss_text">RSS</em>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+</div>
+
+<div id="wrapper">
+	<div class="wrapper_inner">
+		<div id="content">
+	
+	<div class="post_path">
+		You are here: <a class="first_home" rel="nofollow" title="Go to homepage" href="http://blog.anudeep2011.com/">Home</a>
+		» <a href="http://blog.anudeep2011.com/category/algorithms/" title="View all posts in Algorithms" rel="category tag">Algorithms</a> » <a href="http://blog.anudeep2011.com/category/segment-trees/" title="View all posts in Segment trees" rel="category tag">Segment trees</a> » Heavy Light Decomposition	</div>
+	<div class="post-57 post type-post status-publish format-standard hentry category-algorithms category-segment-trees post post_s" id="post-57">
+		<h1 class="title title_s">Heavy Light Decomposition</h1>		<div id="scroll_s_p" class="p_meta_s_t">
+			April 11, 2014			| <a href="http://blog.anudeep2011.com/author/anudeep2011/" rel="author">anudeep2011</a>
+										<span class="p_comment_s">∇ <a href="http://blog.anudeep2011.com/heavy-light-decomposition/#respond" title="Go to respond" rel="nofollow">Leave a comment</a>(10)</span>
+				<span class="p_comment_s">⊕ <a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comments" title="Go to comments" rel="nofollow">Go to comments</a></span>
+						<span class="jtxs_bg"></span>
+		</div>
+		<div class="entry" id="entry_font">
+			<p><strong>Long post with lot of explanation, targeting&nbsp;novice. If you are aware of how HLD is useful, skip to “Basic Idea”.</strong></p>
+<h2>Why a Balanced Binary Tree is good?</h2>
+<div id="attachment_58" style="width: 422px" class="wp-caption alignnone"><a href="http://i1.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/CompleteBinaryTree_1000.gif"><img class="size-full wp-image-58" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/CompleteBinaryTree_1000.gif" alt="Balanced Binary Tree" width="412" height="249"></a><p class="wp-caption-text">Balanced Binary Tree</p></div>
+<p>A balanced binary tree with <strong>N</strong> nodes has a height of <strong>l</strong><strong>og N</strong>. This gives us the following properties:</p>
+<ul>
+<li>You need to visit at most&nbsp;<strong>log N</strong> nodes to reach&nbsp;<strong>root</strong> node from any other node</li>
+<li>You need to visit at most&nbsp;<strong>2 * log N</strong> nodes to reach from any node to any other node in the tree</li>
+</ul>
+<p>The&nbsp;<strong>log&nbsp;</strong>factor is always good in the world of competitive programming <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_smile.gif" alt=":)" class="wp-smiley" width="15" height="15"> </p>
+<p>Now, if a balanced binary tree with <strong>N </strong>nodes&nbsp;is given, then many queries can be done with&nbsp;<strong>O( log N )</strong>&nbsp;complexity. Distance of a path, Maximum/Minimum in a path, Maximum contiguous sum etc etc.<br>
+<span id="more-57"></span></p>
+<h2>Why a Chain is good?</h2>
+<p><a href="http://i1.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/flat.png"><img class="alignnone size-full wp-image-59" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/flat.png" alt="flat" width="555" height="59"></a></p>
+<p>A chain is a set of nodes connected one after another. It can be viewed as a simple array of nodes/numbers. We can do many operations on array of elements with&nbsp;<strong>O(</strong>&nbsp;<strong>log N ) </strong>complexity&nbsp;using&nbsp;<strong>segment tree / BIT /</strong>&nbsp;other<strong>&nbsp;</strong>data structures. You can read more about segment trees <a href="http://letuskode.blogspot.in/2013/01/segtrees.html">here – A tutorial by Utkarsh</a> .</p>
+<p>Now, we know that Balanced Binary Trees and arrays are good for computation. We can do a lot of operations with&nbsp;<strong>O( log N )&nbsp;</strong>complexity on both the data structures.</p>
+<h2>Why an Unbalanced Tree is bad?</h2>
+<p>Height of unbalanced tree can be&nbsp;arbitrary. In the worst case, we have to visit&nbsp;<strong>O( N )</strong> nodes to move from one node to another node. So Unbalanced trees are not computation friendly. We shall see how we can deal with unbalanced trees.</p>
+<h2>Consider this example..</h2>
+<p><strong>Consider the following question</strong>: Given&nbsp;<strong>A&nbsp;</strong>and&nbsp;<strong>B</strong>, calculate the sum of all node values on the path from&nbsp;<strong>A&nbsp;</strong>to <b>B</b>.</p>
+<p><a href="http://i0.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/Untitled-Diagram-1.png"><img class="alignnone size-full wp-image-90" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/Untitled-Diagram-1.png" alt="Simple Tree" width="573" height="519"></a></p>
+<p>Here are details about the given images</p>
+<ol>
+<li>The tree in the image has&nbsp;<strong>N&nbsp;</strong>nodes.</li>
+<li><span style="line-height: 1.5em;">We need to visit&nbsp;</span><strong style="line-height: 1.5em;">N/3&nbsp;</strong><span style="line-height: 1.5em;">nodes to travel from&nbsp;</span><strong style="line-height: 1.5em;">A&nbsp;</strong><span style="line-height: 1.5em;">to&nbsp;<strong>D</strong></span><span style="line-height: 1.5em;">.</span></li>
+<li><span style="line-height: 1.5em;">We need to visit&nbsp;</span><strong style="line-height: 1.5em;">&gt;N/3&nbsp;</strong><span style="line-height: 1.5em;">nodes to travel from <strong>B</strong></span><strong style="line-height: 1.5em;">&nbsp;</strong><span style="line-height: 1.5em;">to <strong>D</strong></span>.</li>
+<li><span style="line-height: 1.5em;">We need to visit&nbsp;</span><strong style="line-height: 1.5em;">&gt;N/2&nbsp;</strong><span style="line-height: 1.5em;">nodes to travel from&nbsp;<strong>C</strong></span><strong style="line-height: 1.5em;">&nbsp;</strong><span style="line-height: 1.5em;">to&nbsp;<strong>D</strong></span><span style="line-height: 1.5em;">.</span></li>
+</ol>
+<p>It is clear that moving from one node to another can be up to&nbsp;<strong>O( N )</strong>&nbsp;complexity.<strong><br>
+</strong></p>
+<p><strong>This is important:&nbsp;</strong>What if we broke the tree in to 3 chains as shown in image below. Then we consider each chain as an independent problem. We are dealing with chains so we can use Segment Trees/other data structures that work well on linear list of data.</p>
+<p><a href="http://i1.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/Untitled-Diagram-1-1.png"><img class="alignnone size-full wp-image-91" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/Untitled-Diagram-1-1.png" alt="Decomposed Tree" width="573" height="519"></a></p>
+<p>Here are the details after the trick</p>
+<ol>
+<li>The tree still has&nbsp;<strong>N&nbsp;</strong>nodes, but it is&nbsp;<strong>DECOMPOSED&nbsp;</strong>into 3 chains each of size&nbsp;<strong>N/3</strong>. See 3 different colors, each one is a chain.</li>
+<li><strong>A&nbsp;</strong>and <strong>D</strong><strong>&nbsp;</strong>belong to the same chain. We can get the required sum of node values of path from&nbsp;<strong>A&nbsp;</strong>to&nbsp;<strong>D&nbsp;</strong>in&nbsp;<strong>O( log N )</strong> time using segment tree data structure.</li>
+<li><strong>B&nbsp;</strong>belongs to yellow chain, and <strong>D</strong><strong>&nbsp;</strong>belongs to blue chain. Path from&nbsp;<strong>B&nbsp;</strong>to&nbsp;<strong>D&nbsp;</strong>can be broken as <strong>B</strong><strong>&nbsp;</strong>to&nbsp;<b>T3</b>&nbsp;and&nbsp;<strong>T4&nbsp;</strong>to&nbsp;<strong>D</strong>. Now we are dealing with 2 cases which are similar to the above case. We can calculate required sum in&nbsp;<strong>O( log N )&nbsp;</strong>time for&nbsp;<strong>B&nbsp;</strong>to&nbsp;<strong>T3</strong>&nbsp;and&nbsp;<strong>O( log N )&nbsp;</strong>time for&nbsp;<strong>T4&nbsp;</strong>to&nbsp;<strong>D</strong>. Great, we reduced this to&nbsp;<strong>O( log N )</strong>.</li>
+<li><strong>C</strong> belongs to red chain, and&nbsp;<strong>D&nbsp;</strong>belongs to blue chain. Path from&nbsp;<strong>C&nbsp;</strong>to&nbsp;<strong>D&nbsp;</strong>can be broken as&nbsp;<strong>C&nbsp;</strong>to&nbsp;<strong>T1</strong>,<strong>&nbsp;</strong><strong>T2&nbsp;</strong>to&nbsp;<strong>T3&nbsp;</strong>and&nbsp;<strong>T4&nbsp;</strong>to&nbsp;<strong>D</strong>. Again we are dealing with 3 cases similar to 2nd case. So we can again do it in&nbsp;<strong>O( log N )</strong>.</li>
+</ol>
+<p>Awesome!! We used concepts of&nbsp;<strong>Decomposition&nbsp;</strong>and&nbsp;<strong>Segment Tree DS</strong>, reduced the query complexity from&nbsp;<strong>O( N )</strong> to&nbsp;<strong>O( log N )</strong>. As I said before, competitive programmers always love the&nbsp;<b>log </b>factors <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_biggrin.gif" alt=":D" class="wp-smiley" width="15" height="15">  <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_biggrin.gif" alt=":D" class="wp-smiley" width="15" height="15"> </p>
+<p>But wait the tree in the example is special, only 2 nodes had degree greater than 2. We did a simple decomposition and achieved better complexity, but in a general tree we need to do some thing little more complex to get better complexity. And that little more complex decomposition is called&nbsp;<strong>Heavy Light Decomposition</strong>.</p>
+<h2>Basic Idea</h2>
+<p>We will divide the tree into <strong>vertex-disjoint chains</strong> ( Meaning no two chains has a node in common ) in such a way that to move from<strong> any node </strong>in the tree to the<strong> root </strong>node, we will have to <strong>change at most</strong>&nbsp;<strong>log N</strong>&nbsp;chains. To put it in another words, the path from <strong>any node</strong> to <strong>root</strong> can be broken into pieces such that the each piece belongs to only one chain, then we will have no more than <strong>l</strong><strong>og N&nbsp;</strong>pieces.</p>
+<p>Let us assume that the above is done, So what?. Now the path from any node <b>A</b> to any node&nbsp;<strong>B&nbsp;</strong>can be &nbsp;broken into two paths:&nbsp;<strong>A&nbsp;</strong>to&nbsp;<strong>LCA( A, B )</strong> and&nbsp;<strong>B&nbsp;</strong>to&nbsp;<strong>LCA( A, B )</strong>. Details about LCA -&nbsp;<a href="http://en.wikipedia.org/wiki/Lowest_common_ancestor">Click Here</a>&nbsp;or <a href="http://www.topcoder.com/tc?d1=tutorials&d2=lowestCommonAncestor&module=Static">Here</a>. So at this point we need to only worry about paths of the following format: <strong>Start at some node and go up the tree&nbsp;</strong>because&nbsp;<strong>A&nbsp;</strong>to&nbsp;<strong>LCA( A, B )&nbsp;</strong>and&nbsp;<strong>B&nbsp;</strong>to&nbsp;<strong>LCA( A, B )</strong> are both such paths.</p>
+<p>What are we up to till now?</p>
+<ul>
+<li>We assumed that we can break tree into chains such that we will have to&nbsp;<strong>change at most</strong><strong>&nbsp;log N</strong>&nbsp;chains to move from any node up the tree to any other node.</li>
+<li>Any path can be broken into two paths such both paths start at some node and move up the tree</li>
+<li>We already know that queries in each chain can be answered with&nbsp;<strong>O( log N )&nbsp;</strong>complexity and there are at most&nbsp;<strong>log N</strong><strong>&nbsp;</strong>chains we need to consider per path. So on the whole we have&nbsp;<strong>O( log^2 N )&nbsp;</strong>complexity solution. Great!!</li>
+</ul>
+<p>Till now I have explained how&nbsp;<strong>HLD&nbsp;</strong>can be used to reduce complexity. Now we shall see details about how&nbsp;<strong>HLD&nbsp;</strong>actually decomposes the tree.</p>
+<p><strong>Note : My version of HLD is little different from the standard one, but still everything said above holds.</strong></p>
+<h2>&nbsp;Terminology</h2>
+<p>Common tree related terminology can be found <a href="http://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology">here</a>.</p>
+<p><strong>Special Child :&nbsp;</strong>Among all child nodes of a node, the one with maximum sub-tree size is considered as&nbsp;<strong>Special child</strong>. Each non leaf node has exactly one&nbsp;<strong>Special child</strong>.</p>
+<p><strong>Special Edge :&nbsp;</strong>For each non-leaf node, the edge connecting the node with its&nbsp;<strong>Special&nbsp;</strong><strong>child</strong> is considered as&nbsp;<strong>Special Edge</strong>.</p>
+<p><a href="http://i2.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/graph-2.png"><img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/graph-2.png" alt="Random Graph" width="630" height="506"></a></p>
+<p><strong>Read the next 3 paras until you clearly understand every line of it, every line makes sense (Hope!). Read it 2 times 3 times 10 times 2 power 10 times .. , until you understand!!</strong></p>
+<p>What happens if you go to each node, find the special child and special edge and mark all special edges with green color and other edges are still black? Well, what happens is&nbsp;<strong>HLD</strong>. What would the graph look like then? Colorful yes. Not just colorful. Green edges actually forms vertex disjoint chains and black edges will be the connectors between chains. Let us explore one chain, start at root, move to the special child of root (there is only one special child, so easy pick), then to its special child and so on until you reach a leaf node, what you just traveled is a chain which starts at root node. Let us assume that root node has&nbsp;<strong>m&nbsp;</strong>child nodes. Note that all&nbsp;<strong>m-1</strong> normal child nodes are starting nodes of some other chains.</p>
+<p>What happens if you move from a node to a normal child node of it. This is the&nbsp;<strong>most important part</strong>. When you move from a node to any of its normal child, the sub-tree size at least becomes half. Consider a node&nbsp;<strong>X&nbsp;</strong>whose sub-tree size is <b>s&nbsp;</b>and has&nbsp;<strong>m</strong>&nbsp;child nodes. If&nbsp;<strong>m=1</strong>, then the only child is special child (So there is no case of moving to normal child). For&nbsp;<strong>m&gt;2</strong>, sub-tree size of any normal child is&nbsp;<strong>&lt;=s/2</strong>. To prove that, let us talk about the sub-tree size of special child. What is the least sub-tree size possible for special child? Answer is <strong>ceil( s/m )</strong> (what is ceil? <a href="http://en.wikipedia.org/wiki/Floor_and_ceiling_functions">click here</a>). To prove it, let us assume it is less than&nbsp;<strong>ceil( s/m )</strong>. As this child is the one with maximum sub-tree size, all other normal child nodes will be at most as large as special child,&nbsp;<strong>m&nbsp;</strong>child nodes with each less than&nbsp;<strong>ceil( s/m )</strong> will not sum up to&nbsp;<strong>s</strong>, so with this counter-intuition. We have the following: The mininum sub-tree size possible for special child is&nbsp;<strong>ceil( s/m )</strong>. This being said, the maximum size for normal child is&nbsp;<strong>ceil( s/m )&nbsp;</strong>and&nbsp;<strong>m&gt;2. So when ever you move from a node to a normal child, the sub-tree size at least becomes half.</strong><b><br>
+</b></p>
+<p>We stated early that to move from <b>root </b>to any node (or viceversa) we need to change at most&nbsp;<strong>log N&nbsp;</strong>chains. Here is the proof; Changing a chain means we are moving for a node to a normal child, so each time we change chain we are at least halving the sub-tree size. For a tree with size&nbsp;<strong>N</strong>, we can halve it at most&nbsp;<strong>log N</strong> times (Why? Well, take a number and keep halving, let me know if it takes more than&nbsp;<strong>ceil(&nbsp;</strong><strong>log N</strong>&nbsp;) steps).<strong><br>
+</strong></p>
+<p><a href="http://i0.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/graph-1.png"><img class="alignnone size-full wp-image-95" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/graph-1.png" alt="HL Decomposed Graph" width="630" height="498"></a></p>
+<p>At this point, we know what&nbsp;<strong>HLD&nbsp;</strong>is, we know why one has to use&nbsp;<strong>HLD</strong>, basic idea of&nbsp;<strong>HLD</strong>, terminology and proof. We shall now see implementation details of&nbsp;<strong>HLD&nbsp;</strong>and few related problems.<strong><br>
+</strong></p>
+<h2>Implementation</h2>
+<p><strong>Algorithm</strong></p>
+<pre class="brush: cpp; title: ; notranslate" title="">HLD(curNode, Chain):
+    Add curNode to curChain
+    If curNode is LeafNode: return&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//Nothing left to do
+    sc := child node with maximum sub-tree size &nbsp; &nbsp; &nbsp; //sc is the special child
+    HLD(sc, Chain) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Extend current chain to special child
+    for each child node cn of curNode: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//For normal childs
+        if cn != sc: HLD(cn, newChain) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//As told above, for each normal child, a new chain starts
+</pre>
+<p>Above algorithm correctly does&nbsp;<strong>HLD</strong>. But we will need bit more information when solving&nbsp;<strong>HLD&nbsp;</strong>related problems. We should be able to answer the following questions:</p>
+<ol>
+<li>Given a node, to which chain does that node belong to.</li>
+<li>Given a node, what is the position of that node in its chain.</li>
+<li>Given a chain, what is the head of the chain</li>
+<li>Given a chain, what is the length of the chain</li>
+</ol>
+<p>So let us see a&nbsp;<strong>C++</strong> implementation which covers all of the above</p>
+<pre class="brush: cpp; title: ; notranslate" title="">int chainNo=0,chainHead[N],chainPos[N],chainInd[N],chainSize[N];
+void hld(int cur) {
+    if(chainHead[chainNo] == -1) chainHead[chainNo]=cur;
+    chainInd[cur] = chainNo;
+    chainPos[cur] = chainSize[chainNo];
+    chainSize[chainNo]++;
+
+    int ind = -1,mai = -1;
+    for(int i = 0; i &lt; adj[cur].sz; i++) {         if(subsize[ adj[cur][i] ] &gt; mai) {
+            mai = subsize[ adj[cur][i] ];
+            ind = i;
+        }
+    }
+
+    if(ind &gt;= 0) hld( adj[cur][ind] );
+
+    for(int i = 0; i &lt; adj[cur].sz; i++) {
+        if(i != ind) {
+            chainNo++;
+            hld( adj[cur][i] );
+        }
+    }
+}
+</pre>
+<p>Initially all entries of chainHead[] are set to -1. So in line 3 when ever a new chain is started, chain head is correctly assigned. As we add a new node to chain, we will note its position in the chain and increment the chain length. In the first for loop (lines 9-14) we find the child node which has maximum sub-tree size. The following if condition (line 16) is failed for leaf nodes. When the if condition passes, we expand the chain to special child. In the second for loop (lines 18-23) we recursively call the function on all normal nodes. chainNo++ ensures that we are creating a new chain for each normal child.</p>
+<h2>Example</h2>
+<p>Problem : <a href="http://www.spoj.com/problems/QTREE/">SPOJ – QTREE<br>
+</a>Solution : Each edge has a number associated with it. Given 2 nodes <strong>A&nbsp;</strong>and&nbsp;<strong>B</strong>, we need to find the edge on path from&nbsp;<strong>A&nbsp;</strong>to&nbsp;<strong>B</strong> with maximum value. Clearly we can break the path into&nbsp;<strong>A&nbsp;</strong>to&nbsp;<strong>LCA( A, B )&nbsp;</strong>and&nbsp;<strong>B&nbsp;</strong>to&nbsp;<strong>LCA( A, B )</strong>, calculate answer for each of them and take the maximum of both. As mentioned above as the tree need not be balanced, it may take upto&nbsp;<strong>O( N )</strong> to travel from&nbsp;<strong>A&nbsp;</strong>to&nbsp;<strong>LCA( A, B )</strong> and find the maximum. Let us use&nbsp;<strong>HLD&nbsp;</strong>as detailed above to solve the problem.</p>
+<p>Solution Link : <a href="https://github.com/anudeep2011/programming/blob/master/qtree.cpp">Github – Qtree.cpp</a>&nbsp;(well commented solution)<br>
+I will not explain all the functions of the solution. I will explain how query works in detail</p>
+<p><strong>main()</strong> : Scans the tree, calls all required functions in order.<br>
+<b>dfs()&nbsp;</b>: Helper function. Sets up depth, subsize, parent of each node.<br>
+<strong>LCA()&nbsp;</strong>: Returns Lowest Common Ancestor of two node<br>
+<strong>make_tree()&nbsp;</strong>: Segment tree construction<br>
+<strong>update_tree()&nbsp;</strong>: Segment tree update. Point Update<br>
+<strong>query_tree()</strong> : Segment tree query. Range Update<br>
+<strong>HLD()&nbsp;</strong>: Does HL-Decomposition, similar to one explained above<br>
+<strong>change()&nbsp;</strong>: Performs change operation as given in problem statemenm</p>
+<p><strong>query()</strong> : We shall see in detail about the query function.</p>
+<pre class="brush: cpp; title: ; notranslate" title="">int query(int u, int v) {
+    int lca = LCA(u, v);
+    return max( query_up(u, lca), query_up(v, lca) );
+}
+</pre>
+<p>we calculate LCA(u, v). we call query_up function twice once for the path u to lca and again for the path v to lca. we take the maximum of those both as the answer.</p>
+<p><strong>query_up()&nbsp;</strong>: This is <strong>important.</strong>&nbsp;This function takes 2 nodes u, v such that v is ancestor of u. That means the path from u to v is like going up the tree. We shall see how it works.</p>
+<pre class="brush: cpp; title: ; notranslate" title="">int query_up(int u, int v) {
+    int uchain, vchain = chainInd[v], ans = -1;
+
+    while(1) {
+        if(uchain == vchain) {
+            int cur = query_tree(1, 0, ptr, posInBase[v]+1, posInBase[u]+1);
+            if( cur &gt; ans ) ans = cur;
+            break;
+        }
+        int cur = query_tree(1, 0, ptr, posInBase[chainHead[uchain]], posInBase[u]+1);
+        if( cur &gt; ans ) ans = cur;
+        u = chainHead[uchain];
+        u = parent(u);
+    }
+    return ans;
+}
+</pre>
+<p><strong>uchain&nbsp;</strong>and&nbsp;<strong>vchain</strong> are chain numbers in which&nbsp;<strong>u&nbsp;</strong>and&nbsp;<strong>v&nbsp;</strong>are present respectively.&nbsp;We have a while loop which goes on until we move up from&nbsp;<strong>u&nbsp;</strong>till&nbsp;<strong>v</strong>. We have 2 cases, one case is when both&nbsp;<strong>u&nbsp;</strong>and&nbsp;<strong>v&nbsp;</strong>belong to the same chain, in this case we can query for the range between&nbsp;<strong>u&nbsp;</strong>and&nbsp;<strong>v</strong>. We can stop our query at this point because we reached&nbsp;<strong>v</strong>.<br>
+Second case is when&nbsp;<strong>u&nbsp;</strong>and&nbsp;<strong>v</strong> are in different chains. Clearly&nbsp;<strong>v&nbsp;</strong>is above in the tree than&nbsp;<strong>u</strong>. So we need to completely move up the chain of&nbsp;<strong>u</strong> and go to next chain above&nbsp;<strong>u</strong>. We query from<strong> chainHead[u]</strong> to <strong>u</strong>, update the answer. Now we need to change chain. Next node after current chain is the parent of&nbsp;<strong>chainHead[u]</strong>.</p>
+<p>Following image is the same tree we used above. I explained how query works on a path from&nbsp;<strong>u&nbsp;</strong>to&nbsp;<strong>v</strong>.</p>
+<p><a href="http://i2.wp.com/blog.anudeep2011.com/wp-content/uploads/2014/04/graph.png"><img class="alignnone size-full wp-image-94" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/graph.png" alt="Example Path" width="630" height="639"></a></p>
+<h2></h2>
+<h2>Problems</h2>
+<p>SPOJ – QTREE -&nbsp;<a href="http://www.spoj.com/problems/QTREE/" target="_blank">http://www.spoj.com/problems/QTREE/</a><br>
+SPOJ – QTREE2 -&nbsp;<a href="http://www.spoj.com/problems/QTREE2/" target="_blank">http://www.spoj.com/problems/QTREE2/</a><br>
+SPOJ – QTREE3 -&nbsp;<a href="http://www.spoj.com/problems/QTREE3/" target="_blank">http://www.spoj.com/problems/QTREE3/</a><br>
+SPOJ – QTREE4 -&nbsp;<a href="http://www.spoj.com/problems/QTREE4/" target="_blank">http://www.spoj.com/problems/QTREE4/</a><br>
+SPOJ – QTREE5 -&nbsp;<a href="http://www.spoj.com/problems/QTREE5/" target="_blank">http://www.spoj.com/problems/QTREE5/</a><br>
+SPOJ – QTREE6 -&nbsp;<a href="http://www.spoj.com/problems/QTREE6/" target="_blank">http://www.spoj.com/problems/QTREE6/</a><br>
+SPOJ – QTREE7 -&nbsp;<a href="http://www.spoj.com/problems/QTREE7/" target="_blank">http://www.spoj.com/problems/QTREE7/</a><br>
+SPOJ – COT -&nbsp;<a href="http://www.spoj.com/problems/COT/" target="_blank">http://www.spoj.com/problems/COT/</a><br>
+SPOJ – COT2 -&nbsp;<a href="http://www.spoj.com/problems/COT2/" target="_blank">http://www.spoj.com/problems/COT2/</a><br>
+SPOJ – COT3 -&nbsp;<a href="http://www.spoj.com/problems/COT3/" target="_blank">http://www.spoj.com/problems/COT3/</a><br>
+SPOJ – GOT -&nbsp;<a href="http://www.spoj.com/problems/GOT/" target="_blank">http://www.spoj.com/problems/GOT/</a><br>
+SPOJ – GRASSPLA -&nbsp;<a href="http://www.spoj.com/problems/GRASSPLA/" target="_blank">http://www.spoj.com/problems/GRASSPLA/</a><br>
+SPOJ – GSS7 -&nbsp;<a href="http://www.spoj.com/problems/GSS7/" target="_blank">http://www.spoj.com/problems/GSS7/</a><br>
+CODECHEF – GERALD2 -&nbsp;<a href="http://www.codechef.com/problems/GERALD2" target="_blank">http://www.codechef.com/problems/GERALD2</a><br>
+CODECHEF – RRTREE -&nbsp;<a href="http://www.codechef.com/problems/RRTREE" target="_blank">http://www.codechef.com/problems/RRTREE</a><br>
+CODECHEF – QUERY -&nbsp;<a href="http://www.codechef.com/problems/QUERY" target="_blank">http://www.codechef.com/problems/QUERY</a><br>
+CODECHEF – QTREE -&nbsp;<a href="http://www.codechef.com/problems/QTREE" target="_blank">http://www.codechef.com/problems/QTREE</a><br>
+CODECHEF – DGCD -&nbsp;<a href="http://www.codechef.com/problems/DGCD" target="_blank">http://www.codechef.com/problems/DGCD</a><br>
+CODECHEF – MONOPLOY -&nbsp;<a href="http://www.codechef.com/problems/MONOPLOY" target="_blank">http://www.codechef.com/problems/MONOPLOY</a></p>
+<p>All codechef problems have Editorials.<br>
+<strong>QTREE&nbsp;</strong>: Explained above as example<br>
+<strong>QTREE2&nbsp;</strong>: Segment trees this time should support sum operation over range. There is no update operation. Note that you can also use <strong>BIT.</strong> For finding the Kth element on a path, we can use&nbsp;<strong>LCA</strong> style jumping, it can be done in&nbsp;<strong>O( log N )</strong>.<br>
+<strong>QTREE3&nbsp;</strong>: Simple. Segment tree should answer the following: index of left most black node in a range.<br>
+<strong>QTREE4</strong> : You need the maximum distance. Clearly we can take the left most white node and right most white node. Distance between them will be the required answer. So our segment tree should be able to answer left most white node index as well as range sum.<br>
+<strong>QTREE5</strong> : Bit hard. Read editorial of&nbsp;<strong>QTREE6</strong> to get idea. (Correct me if I am wrong, I did not solve it yet)<br>
+<strong>QTREE6&nbsp;</strong>: Editorial – <a href="http://discuss.codechef.com/questions/31833/qtree6-editorial" target="_blank">Click Here</a><br>
+<strong>QTREE7&nbsp;</strong>: Hard. Read editorial of&nbsp;<strong>MONOPOLY</strong>&nbsp;and <strong>GERALD2</strong>.<br>
+<strong>MONOPOLY&nbsp;</strong>: Editorial – <a href="http://discuss.codechef.com/questions/30986/monoploy-editorial" target="_blank">Click Here<br>
+</a><strong>GERALD2&nbsp;</strong>: Editorial – <a href="http://discuss.codechef.com/questions/32036/gerald2-editorial" target="_blank">Click Here</a></p>
+<h2>The End!</h2>
+<p>Finallyyy!!! Long one!! When I was learning various algorithms and doing programming, the topic that bugged me the most was HLD, I did not understand it for a long time, also there was not any good tutorial. So I decided to start with HLD, I hope it will help a lot <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_smile.gif" alt=":)" class="wp-smiley" width="15" height="15">  This is my first attempt in writing a post/tutorial. Do share your views on it. Also I took a lot of time setting up this blog on EC2 (3 days, well I am new to this stuff), you can use contact me to write anything related to this blog, about cautions or bugs or will-do-good changes.<br>
+Share this post. Learn and let learn! <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_biggrin.gif" alt=":D" class="wp-smiley" width="15" height="15"> </p>
+					</div>
+		<div class="p_meta">
+			Filed under <h2><a href="http://blog.anudeep2011.com/category/algorithms/" title="View all posts in Algorithms" rel="category tag">Algorithms</a>, <a href="http://blog.anudeep2011.com/category/segment-trees/" title="View all posts in Segment trees" rel="category tag">Segment trees</a></h2>
+			| Tags: <h2></h2>
+			| | 12,780 views		</div>
+		<div id="nav_below">
+			<p class="nav-previous"></p>
+			<p class="nav-next"> <a href="http://blog.anudeep2011.com/persistent-segment-trees-explained-with-spoj-problems/" rel="next">Persistent segment trees – Explained with spoj problems</a> »</p>
+		</div>
+	</div>
+
+	<!-- You can start editing here. -->
+
+			<div id="comments-div"><span id="comments-addcomment"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#respond" rel="nofollow" title="Leave a comment ?">Leave a comment ?</a></span><h2 id="comments">10 Comments.</h2></div>
+		<ol class="commentlist" id="thecomments">
+				
+<li class="comment even thread-even depth-1" id="li-comment-181">
+	<div id="comment-181">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/f9d2ab5c094a19f902fefe03ad10a3ce" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-f9d2ab5c094a19f902fefe03ad10a3ce-0">			<cite class="fn">Pratik kumar</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-181">August 18, 2014 at 5:20 PM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Hey Anudeep nice tutorial…..easy to understand and to the point.<br>
+Please look my code for errors:<br>
+<a href="http://ideone.com/foVgD4" rel="nofollow">http://ideone.com/foVgD4</a></p>
+<p>I used the same concept but kept edge cost at the child side of the edge so as to avoid ambiguity as you did and hence queried using the child sided node…..but still it returns sigsegv error on submission on spoj.</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=181#respond" onclick="return addComment.moveForm(&quot;comment-181&quot;, &quot;181&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+<ul class="children">
+
+<li class="comment byuser comment-author-anudeep2011 bypostauthor odd alt depth-2" id="li-comment-184">
+	<div id="comment-184">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/4ca7580fe639f70cd35c43f37cc25bc1" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-4ca7580fe639f70cd35c43f37cc25bc1-0">			<cite class="fn">anudeep2011</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-184">August 19, 2014 at 2:14 AM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Looking into code and finding bug is just very hard. I would not want to do that.</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=184#respond" onclick="return addComment.moveForm(&quot;comment-184&quot;, &quot;184&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-146">
+	<div id="comment-146">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/de1e870965e8c2f2273090897038504a" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-de1e870965e8c2f2273090897038504a-0">			<cite class="fn">Sikander</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-146">August 12, 2014 at 12:40 AM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Had been postponing learning HLD since months because of it being a hard topic, learned it in less than an hour thanks to your amazing explanation.</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=146#respond" onclick="return addComment.moveForm(&quot;comment-146&quot;, &quot;146&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-even depth-1" id="li-comment-118">
+	<div id="comment-118">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/6b440d8c226b5fa8f225995594f9ee58" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-6b440d8c226b5fa8f225995594f9ee58-0">			<cite class="fn"><a href="https://plus.google.com/101137995535621901456" rel="external nofollow" class="url">virat sharma</a></cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-118">August 3, 2014 at 2:40 PM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Can u explain How can we solve <a href="http://www.spoj.com/problems/COT/" rel="nofollow">http://www.spoj.com/problems/COT/</a> using HLD bcz i didn’t figure out.</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=118#respond" onclick="return addComment.moveForm(&quot;comment-118&quot;, &quot;118&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-95">
+	<div id="comment-95">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/4d05aaf4d18e03eb30fabb4b12ba2d5a" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-4d05aaf4d18e03eb30fabb4b12ba2d5a-0">			<cite class="fn"><a href="http://gravatar.com/hackedpunk2323" rel="external nofollow" class="url">Saumye</a></cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-95">July 24, 2014 at 6:22 PM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Wow! Just landed up on your blog and it’s very informative.<br>
+You explain stuff very well. Should leave Google and start conducting workshops in India. <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_razz.gif" alt=":P" class="wp-smiley"> </p>
+<p>PS. If you can please do a blog article on different uncommon data structures(not the common ones). <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_smile(1).gif" alt=":)" class="wp-smiley"> </p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=95#respond" onclick="return addComment.moveForm(&quot;comment-95&quot;, &quot;95&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+<ul class="children">
+
+<li class="comment byuser comment-author-anudeep2011 bypostauthor odd alt depth-2" id="li-comment-98">
+	<div id="comment-98">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/4ca7580fe639f70cd35c43f37cc25bc1" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-4ca7580fe639f70cd35c43f37cc25bc1-1">			<cite class="fn">anudeep2011</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-98">July 27, 2014 at 1:08 AM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Thank you! Yes, I always try to blog about stuff that has least resources online, or the ones that are not common with sub-continent programmers!</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=98#respond" onclick="return addComment.moveForm(&quot;comment-98&quot;, &quot;98&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-93">
+	<div id="comment-93">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/106588744ec07acc20757415eeac8a6b" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-106588744ec07acc20757415eeac8a6b-0">			<cite class="fn">rahul kumar</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-93">July 23, 2014 at 1:23 PM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>hi anudeep ,thank u for this greate tutorial ..finally i learnt how the hld works…<br>
+i implemented QTREE but it gives TLE …i used similar code for HLD as of yours<br>
+here is the link  <a href="https://github.com/princerk/code/blob/master/.gitignore" rel="nofollow">https://github.com/princerk/code/blob/master/.gitignore</a><br>
+i uesd segment tree  discusssed in utkarsh’s blog and calculated LCA using HLD<br>
+(im sure it wont take more than 5 min of urs)</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=93#respond" onclick="return addComment.moveForm(&quot;comment-93&quot;, &quot;93&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-13">
+	<div id="comment-13">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/f6fc3c96c962f4248964ac3c6be4e41f" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-f6fc3c96c962f4248964ac3c6be4e41f-0">			<cite class="fn">rohit verma</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-13">July 14, 2014 at 2:32 AM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>nice tutorial <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_smile(1).gif" alt=":)" class="wp-smiley"> </p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=13#respond" onclick="return addComment.moveForm(&quot;comment-13&quot;, &quot;13&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+
+<li class="comment even thread-even depth-1" id="li-comment-10">
+	<div id="comment-10">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/cf6dd76514a2a29fa585edab96b55873" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-cf6dd76514a2a29fa585edab96b55873-0">			<cite class="fn">Mriganka Basu Roy Chowdhury</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-10">July 13, 2014 at 8:12 PM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>This is great. <img src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/icon_biggrin(1).gif" alt=":D" class="wp-smiley">  Yes, totally agreed, HLD has very less number of tutorials; so thanks a lot. Could you please refer me / write one (this is even better :D) tutorial on 2D segtrees? This year I went to IOITC, and there was a problem on 2D BIT; in IOI 2013 there was one on 2D seg trees, so I thought knowing 2D segtrees would help.</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=10#respond" onclick="return addComment.moveForm(&quot;comment-10&quot;, &quot;10&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+<ul class="children">
+
+<li class="comment byuser comment-author-anudeep2011 bypostauthor odd alt depth-2" id="li-comment-11">
+	<div id="comment-11">
+		<div class="comment-author vcard">
+			<img alt="" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/4ca7580fe639f70cd35c43f37cc25bc1" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-4ca7580fe639f70cd35c43f37cc25bc1-2">			<cite class="fn">anudeep2011</cite>
+			<span class="comment-meta commentmetadata"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-11">July 13, 2014 at 8:54 PM</a></span>
+		</div>
+		<div class="comment-text">
+			<p>Thank you. I will surely consider that topic.</p>
+					</div>
+		<div class="reply">
+			<a class="comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/?replytocom=11#respond" onclick="return addComment.moveForm(&quot;comment-11&quot;, &quot;11&quot;, &quot;respond&quot;, &quot;57&quot;)">Reply</a>		</div>
+	</div>
+
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		</ol>
+		<div class="navigation"></div>
+	
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		function grin(tag) {
+			var myField;
+			tag = ' ' + tag + ' ';
+			if (document.getElementById('comment') && document.getElementById('comment').type == 'textarea') {
+				myField = document.getElementById('comment');
+			} else {
+				return false;
+			}
+			if (document.selection) {
+				myField.focus();
+				sel = document.selection.createRange();
+				sel.text = tag;
+				myField.focus();
+			}
+			else if (myField.selectionStart || myField.selectionStart == '0') {
+				var startPos = myField.selectionStart;
+				var endPos = myField.selectionEnd;
+				var cursorPos = endPos;
+				myField.value = myField.value.substring(0, startPos)
+							  + tag
+							  + myField.value.substring(endPos, myField.value.length);
+				cursorPos += tag.length;
+				myField.focus();
+				myField.selectionStart = cursorPos;
+				myField.selectionEnd = cursorPos;
+			}
+			else {
+				myField.value += tag;
+				myField.focus();
+			}
+		}
+	/* ]]> */
+	</script>
+						
+		<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://blog.anudeep2011.com/heavy-light-decomposition/#respond" style="display:none;">Cancel reply</a></small></h3>
+			<div id="commentform" class="comment-form">
+				<iframe src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/saved_resource.html" allowtransparency="false" style="width:100%; height: 430px;border:0px;" frameborder="0" scrolling="no" name="jetpack_remote_comment" id="jetpack_remote_comment"></iframe>
+			</div>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		
+</div><!--content-->
+
+<div id="sidebar">
+
+<div id="text-3" class="widget widget_text"><h3 class="widgettitle">Contact Me</h3>			<div class="textwidget"><div class="text_3">Ask about something or report me a bug or just say Hi. I will be happy to get back.</div>
+<br>
+<a href="http://blog.anudeep2011.com/contact-me/"><button type="button" class="my_button" style="margin-left:20px;" value="Contact Me!">Contact Me!</button></a></div>
+		</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widgettitle">Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://blog.anudeep2011.com/programming-community-plan1/">Programming Community – Plan V1.0</a>
+							<span class="post-date">August 17, 2014</span>
+						</li>
+					<li>
+				<a href="http://blog.anudeep2011.com/when-2-guys-talk-its-not-always-about-girlssports/">When 2 guys talk, its not always about girls/sports ;)</a>
+							<span class="post-date">July 18, 2014</span>
+						</li>
+					<li>
+				<a href="http://blog.anudeep2011.com/ioi-and-acm-learning-community/">IOI and ACM learning community</a>
+							<span class="post-date">July 16, 2014</span>
+						</li>
+					<li>
+				<a href="http://blog.anudeep2011.com/persistent-segment-trees-explained-with-spoj-problems/">Persistent segment trees – Explained with spoj problems</a>
+							<span class="post-date">July 13, 2014</span>
+						</li>
+					<li>
+				<a href="./Heavy Light Decomposition   Namespace Anudeep ;)_files/Heavy Light Decomposition   Namespace Anudeep ;).html">Heavy Light Decomposition</a>
+							<span class="post-date">April 11, 2014</span>
+						</li>
+				</ul>
+		</div><div id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widgettitle">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments">anudeep2011 on <a href="http://blog.anudeep2011.com/programming-community-plan1/#comment-185">Programming Community – Plan V1.0</a></li><li class="recentcomments">anudeep2011 on <a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-184">Heavy Light Decomposition</a></li><li class="recentcomments">gourav goyal on <a href="http://blog.anudeep2011.com/programming-community-plan1/#comment-183">Programming Community – Plan V1.0</a></li><li class="recentcomments">Pratik kumar on <a href="http://blog.anudeep2011.com/heavy-light-decomposition/#comment-181">Heavy Light Decomposition</a></li><li class="recentcomments">Ankit on <a href="http://blog.anudeep2011.com/programming-community-plan1/#comment-180">Programming Community – Plan V1.0</a></li></ul></div><div id="categories-2" class="widget widget_categories"><h3 class="widgettitle">Categories</h3>		<ul>
+	<li class="cat-item cat-item-2"><a href="http://blog.anudeep2011.com/category/algorithms/" title="View all posts filed under Algorithms">Algorithms</a> (1)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://blog.anudeep2011.com/category/data-structures/" title="View all posts filed under Data Structures">Data Structures</a> (1)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://blog.anudeep2011.com/category/segment-trees/" title="View all posts filed under Segment trees">Segment trees</a> (2)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://blog.anudeep2011.com/category/spoj/" title="View all posts filed under SPOJ">SPOJ</a> (1)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://blog.anudeep2011.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a> (3)
+</li>
+		</ul>
+</div>
+
+</div><!-- end: #sidebar -->
+		<div class="clear"></div>
+		<span class="w_i_bg_l"></span>
+		<span class="w_i_bg_r"></span>
+	</div><!--.wrapper_inner-->
+</div><!--#wrapper-->
+
+<div id="footer">
+	<div class="footer_inner">
+		<div class="footer_content">
+			Copyright © 2014 <a href="http://blog.anudeep2011.com/" title="Namespace Anudeep ;)">Namespace Anudeep ;)</a>
+		</div>
+		<a class="back_to_top" href="javascript:scroll(0,0)" rel="nofollow" title="Back to top">▲</a>
+	</div>
+	<span class="back_to_top_mobile"><a href="http://blog.anudeep2011.com/heavy-light-decomposition/#" rel="nofollow" title="Back to top">▲</a></span>
+</div>
+
+	<div style="display:none">
+	<div class="grofile-hash-map-f9d2ab5c094a19f902fefe03ad10a3ce">
+	</div>
+	<div class="grofile-hash-map-4ca7580fe639f70cd35c43f37cc25bc1">
+	</div>
+	<div class="grofile-hash-map-de1e870965e8c2f2273090897038504a">
+	</div>
+	<div class="grofile-hash-map-6b440d8c226b5fa8f225995594f9ee58">
+	</div>
+	<div class="grofile-hash-map-4d05aaf4d18e03eb30fabb4b12ba2d5a">
+	</div>
+	<div class="grofile-hash-map-106588744ec07acc20757415eeac8a6b">
+	</div>
+	<div class="grofile-hash-map-f6fc3c96c962f4248964ac3c6be4e41f">
+	</div>
+	<div class="grofile-hash-map-cf6dd76514a2a29fa585edab96b55873">
+	</div>
+	</div>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/form.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/shCore.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/shBrushCpp.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://blog.anudeep2011.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://blog.anudeep2011.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/photon.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var viewsCacheL10n = {"admin_ajax_url":"http:\/\/blog.anudeep2011.com\/wp-admin\/admin-ajax.php","post_id":"57"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/postviews-cache.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/wpgroho.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/comment-reply.min.js"></script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+			// window.location.reload() doesn't respect the Hash in IE
+			window.location.hash = window.location.hash;
+		}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			var comm_par_el = document.getElementById( 'comment_parent' ),
+			    comm_par = (comm_par_el && comm_par_el.value) ? comm_par_el.value : '',
+			    frame = document.getElementById( 'jetpack_remote_comment' ),
+			    tellFrameNewParent;
+
+			tellFrameNewParent = function() {
+				if ( comm_par ) {
+					frame.src = "http://jetpack.wordpress.com/jetpack-comment/?blogid=65280527&postid=57&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en-US&jetpack_version=3.0.2&sig=15781e2b3ab30dea8e6a72a7a88063f05439b892#parent=http%3A%2F%2Fblog.anudeep2011.com%2Fheavy-light-decomposition%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+				} else {
+					frame.src = "http://jetpack.wordpress.com/jetpack-comment/?blogid=65280527&postid=57&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en-US&jetpack_version=3.0.2&sig=15781e2b3ab30dea8e6a72a7a88063f05439b892#parent=http%3A%2F%2Fblog.anudeep2011.com%2Fheavy-light-decomposition%2F";
+				}
+			};
+
+	
+			if ( 'undefined' !== typeof addComment ) {
+				addComment._Jetpack_moveForm = addComment.moveForm;
+
+				addComment.moveForm = function( commId, parentId, respondId, postId ) {
+					var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ), cancelClick, cancel;
+
+					if ( false === returnValue ) {
+						cancel = document.getElementById( 'cancel-comment-reply-link' );
+						cancelClick = cancel.onclick;
+						cancel.onclick = function() {
+							var cancelReturn = cancelClick.call( this );
+							if ( false !== cancelReturn ) {
+								return cancelReturn;
+							}
+
+							if ( !comm_par ) {
+								return cancelReturn;
+							}
+
+							comm_par = 0;
+
+							tellFrameNewParent();
+
+							return cancelReturn;
+						};
+					}
+
+					if ( comm_par == parentId ) {
+						return returnValue;
+					}
+
+					comm_par = parentId;
+
+					tellFrameNewParent();
+
+					return returnValue;
+				};
+			}
+
+	
+			if ( window.postMessage ) {
+				if ( document.addEventListener ) {
+					window.addEventListener( 'message', function( event ) {
+						if ( "http:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				} else if ( document.attachEvent ) {
+					window.attachEvent( 'message', function( event ) {
+						if ( "http:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				}
+			}
+		</script>
+
+	
+	<script src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/e-201451.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.0.2',blog:'65280527',post:'57',tz:'5.5'});
+	var load_cmc = function(){linktracker_init(65280527,57,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img id="wpstats" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/g.gif" alt=""><br>
+<br>
+<br>
+<div class="my_own_1"><div class="my_own_2"><div class="shareaholic-canvas" data-app-id="5315361" data-app="share_buttons" data-title="Heavy Light Decomposition" data-link="http://blog.anudeep2011.com/heavy-light-decomposition/" data-summary=""><div class="shareaholic-share-buttons-container shareaholic-ui badge-counter" style="height: auto;"><div class="shareaholic-share-buttons-wrapper shareaholic-ui"><ul class="shareaholic-share-buttons"><li title="Facebook" data-service="facebook" class="shareaholic-share-button has-shares" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">388</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-facebook"></i><span class="share-button-verb"><b>Share</b></span></a></div></li><li title="Twitter" data-service="twitter" class="shareaholic-share-button has-shares" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">6</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-twitter"></i><span class="share-button-verb"><b>Share</b></span></a></div></li><li title="Google+" data-service="google_plus" class="shareaholic-share-button has-shares" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">8</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-google_plus"></i><span class="share-button-verb"><b>Share</b></span></a></div></li><li title="Pinterest" data-service="pinterest" class="shareaholic-share-button" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">0</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-pinterest"></i><span class="share-button-verb"><b>Share</b></span></a></div></li><li title="LinkedIn" data-service="linkedin" class="shareaholic-share-button" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">0</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-linkedin"></i><span class="share-button-verb"><b>Share</b></span></a></div></li><li title="Email This" data-service="email_this" class="shareaholic-share-button" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">0</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-email_this"></i><span class="share-button-verb"><b>Share</b></span></a></div></li><li title="More Options" data-service="all" class="shareaholic-share-button" style="display: list-item;"><div class="shareaholic-share-button-container"><span class="share-button-counter">0</span><a href="javascript:void(0);"><i class="shareaholic-service-icon service-all"></i><span class="share-button-verb"><b>Share</b></span></a></div></li></ul></div></div></div></div>
+<div class="my_own_3">
+<!--START Scripts : this is the script part you can add to the header of your theme-->
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/jquery(1).js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/jquery.validationEngine-en.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/front-subscribers.js"></script>
+<script type="text/javascript">
+                /* <![CDATA[ */
+                var wysijaAJAX = {"action":"wysija_ajax","controller":"subscribers","ajaxurl":"http://blog.anudeep2011.com/wp-admin/admin-ajax.php","loadingTrans":"Loading..."};
+                /* ]]> */
+                </script><script type="text/javascript" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/front-subscribers.js"></script>
+<!--END Scripts-->
+
+<div class="widget_wysija_cont html_wysija"><div id="msg-form-wysija-html534396f6b0c15-2" class="wysija-msg ajax"></div><form id="form-wysija-html534396f6b0c15-2" method="post" action="http://blog.anudeep2011.com/heavy-light-decomposition/#wysija" class="widget_wysija html_wysija">
+     <nobr> <input type="text" name="wysija[user][email]" class="my_text wysija-input validate[required,custom[email]]" title="Email*" placeholder="Enter Your Email" value="">
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value="">
+    </span>
+<input class="my_button" type="submit" value="STAY UPDATED!">
+</nobr>
+<div class="text_2">Subscribe to get blog updates and you will not regret it :)</div>
+    <input type="hidden" name="form_id" value="2">
+    <input type="hidden" name="action" value="save">
+    <input type="hidden" name="controller" value="subscribers">
+    <input type="hidden" value="1" name="wysija-page">
+
+    
+        <input type="hidden" name="wysija[user_list][list_ids]" value="3">
+    
+ </form></div>
+</div>
+</div>
+
+<iframe id="shr_oven" src="./Heavy Light Decomposition   Namespace Anudeep ;)_files/analytics_frame.html" style="display: none;"></iframe></body></html>
