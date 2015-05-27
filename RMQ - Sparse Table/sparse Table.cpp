@@ -7,6 +7,7 @@
 using namespace std;
 #define Max 10000005
 int rmq[24][Max];
+int A[Max];
 void Compute_ST(int N)
 {
     for (int i = 0; i < N; ++i)rmq[0][i] = i;
