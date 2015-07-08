@@ -1,3 +1,8 @@
+/**
+    Given N degree d1,d2,d3.....dn. Is it possible to make a graph which have no cycle and
+    different two node will be connected with one Edge?
+
+**/
 #include<stdio.h>
 #include<queue>
 #include<vector>
