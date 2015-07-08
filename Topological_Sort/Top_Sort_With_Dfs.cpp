@@ -37,8 +37,5 @@ bool topsort(int N)
 }
 int main()
 {
-    #ifdef _ANICK_
-    //f_input;
-    #endif // _ANICK_
     return 0;
 }
