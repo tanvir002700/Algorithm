@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 vector<int>Graph[200];
 int Back[205],Discover[205];
 bool visit[205];

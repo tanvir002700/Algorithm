@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 vector<int>Graph[10000];
 bool visit[10000];
 int arti[100000];
