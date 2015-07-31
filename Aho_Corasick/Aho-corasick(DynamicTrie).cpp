@@ -65,16 +65,14 @@ void computeFailure()
 void AhoCorasick(const char *str)
 {
     Trie *p=root;
-    int cnt=0;
     for(int i=0;str[i];i++)
     {
         int id=getID(str[i]);
-        while(p->next[id]==NULL&&p!=root)p=p->fail,cnt++;
+        while(p->next[id]==NULL&&p!=root)p=p->fail;
         if(p->next[id]!=NULL)p=p->next[id];
         Trie *tp=p;
         while(tp!=root)
         {
-            cnt++;
             if(tp->stringMap>0)ans[tp->stringMap]++;
             tp=tp->fail;
         }

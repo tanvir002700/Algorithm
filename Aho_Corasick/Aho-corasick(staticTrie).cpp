@@ -45,10 +45,6 @@ struct Trie
             }
             int q=p;
             p=T[p].Next[id];
-            if(p<0)
-            {
-                while(1);
-            }
         }
         T[p].stringMap=M;
     }
@@ -57,7 +53,6 @@ struct Trie
         queue<int>Q;
         Q.push(root);
         int u,prefix;
-        int cnt=0,cnt2=0;
         while(!Q.empty())
         {
             u=Q.front();
@@ -70,7 +65,6 @@ struct Trie
                     prefix=T[u].fail;
                     while(prefix!=NuLL)
                     {
-                        cnt2++;
                         if(T[prefix].Next[i]!=NuLL)
                         {
                             T[now].fail=T[prefix].Next[i];
@@ -88,7 +82,6 @@ struct Trie
 void AhoCorasick(const Trie &A, const char *str)
 {
     int p=root;
-    int cnt1=0,cnt2=0;
     for(int i=0;str[i];i++)
     {
         int id=getID(str[i]);
