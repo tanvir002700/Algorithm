@@ -9,7 +9,7 @@ void Generate_phi()
         if(!phi[i])
         {
             phi[i]=i-1;
-            for(j=i+i; j<M; j+=I)
+            for(j=i+i; j<M; j+=i)
             {
                 if(!phi[j])phi[j]=j;
                 phi[j]=phi[j]/i*(i-1);

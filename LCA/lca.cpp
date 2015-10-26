@@ -66,5 +66,6 @@ int LCA(int p,int q)
         }
     }
     ans+=Cost[p]+Cost[q];
+    ///Lca will be parent[p];
     return ans;
 }
