@@ -1,17 +1,23 @@
-const int Max=10000000;
-bool prime_check[Max];
+const int Max=1000000;
+bool prime_check[Max+5];
+vint prime;
 void sieve()
 {
     int i,j;
-    int sq = sqrt(Max);
-    for(i=2; i<=sq; i++)
+    int sq=sqrt(Max);
+    for(i=2;i*i<=Max;i++)
     {
-        if(!prime_check[i])   // here check i is prime
+        if(!prime_check[i])
         {
-            for(j=i*i; j<Max; j+=i)
+            prime.pb(i);
+            for(j=i*i;j<=Max;j+=i)
             {
-                prime_check[j]=true; //j is multiple of i & make it not prime
+                prime_check[j]=true;
             }
         }
+    }
+    for(i=sq+1;i<=Max;i++)
+    {
+        if(!prime_check[i])prime.pb(i);
     }
 }
