@@ -1,73 +1,51 @@
+// Given a list of numbers of length n, this routine extracts a
+// longest increasing subsequence.
+//
+// Running time: O(n log n)
+//
+//   INPUT: a vector of integers
+//   OUTPUT: a vector containing the longest increasing subsequence
 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
-const int inf = 2000000000; // a large value as infinity
+typedef vector<int> VI;
+typedef pair<int,int> PII;
+typedef vector<PII> VPII;
 
-int n; // the number of items in the sequence
-int Sequence[32]; // the sequence of integers
-int L[32]; // L[] as described in the algorithm
-int I[32]; // I[] as described in the algorithm
-vector<int>LIS;
-void takeInput() {
-    scanf("%d", &n); // how many numbers in the sequence ?
-    for( int i = 0; i < n; i++ ) // take the sequence
-        scanf("%d", &Sequence[i]);
-}
+#define STRICTLY_INCREASNG
 
-int LisNlogK() { // which runs the NlogK LIS algorithm
-    int i; // auxilary variable for iteration
+VI LongestIncreasingSubsequence(VI v)
+{
+    VPII best;
+    VI dad(v.size(), -1);
 
-    I[0] = -inf; // I[0] = -infinite
-    for( i = 1; i <= n; i++ ) // observe that i <= n are given
-        I[i] = inf; // I[1 to n] = infinite
-
-    int LisLength = 0; // keeps the maximum position where a data is inserted
-
-    for( i = 0; i < n; i++ ) { // iterate left to right
-        int low, high, mid; // variables to perform binary search
-        low = 0; // minimum position where we to put data in I[]
-        high = LisLength; // the maximum position
-
-        while( low <= high ) { // binary search to find the correct position
-            mid = ( low + high ) / 2;
-            if( I[mid] < Sequence[i] )
-                low = mid + 1;
-            else
-                high = mid - 1;
-        }
-        // observe the binary search carefully, when the binary search ends
-        // low > high and we put our item in I[low]
-        I[low] = Sequence[i];
-        L[i]=low;
-        if( LisLength < low ) // LisLength contains the maximum position
-            LisLength = low;
-    }
-
-
-    i=0;
-    for(int j=0;j<n;j++)
+    for (int i = 0; i < v.size(); i++)
     {
-        if(L[j]>L[i])
+#ifdef STRICTLY_INCREASNG
+        PII item = make_pair(v[i], 0);
+        VPII::iterator it = lower_bound(best.begin(), best.end(), item);
+        item.second = i;
+#else
+        PII item = make_pair(v[i], i);
+        VPII::iterator it = upper_bound(best.begin(), best.end(), item);
+#endif
+        if (it == best.end())
         {
-            i=j;
+            dad[i] = (best.size() == 0 ? -1 : best.back().second);
+            best.push_back(item);
+        }
+        else
+        {
+            dad[i] = dad[it->second];
+            *it = item;
         }
     }
-    LIS.push_back(Sequence[i]);
-    for(int j=i-1;j>=0;j--)
-    {
-        if(Sequence[j]<Sequence[i]&&L[j]==L[i]-1)
-        {
-            i=j;
-            LIS.push_back(Sequence[j]);
-        }
-    }
-    reverse(LIS.begin(),LIS.end());
-    return LisLength; // return the result
-}
-int main() {
-    takeInput();
-    int result = LisNlogK();
-    printf("The LIS length is %d\n", result);
-    for(int i=0;i<LIS.size();i++)printf("%d ",LIS[i]);
-    return 0;
+
+    VI ret;
+    for (int i = best.back().second; i >= 0; i = dad[i])
+        ret.push_back(v[i]);
+    reverse(ret.begin(), ret.end());
+    return ret;
 }
