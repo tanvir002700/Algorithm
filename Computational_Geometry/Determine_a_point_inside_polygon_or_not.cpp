@@ -30,8 +30,8 @@ bool Segment_intersect(point p1,point p2,point p3,point p4)
     int d3=trun(p1,p2,p3);
     int d4=trun(p1,p2,p4);
     if((d1*d2<0)&&(d3*d4<0))return true;
-    //if(d1==0&&on_segment(p3,p4,p1))return true;
-    //if(d2==0&&on_segment(p3,p4,p2))return true;
+    if(d1==0&&on_segment(p3,p4,p1))return true;
+    if(d2==0&&on_segment(p3,p4,p2))return true;
     if(d3==0&&on_segment(p1,p2,p3))return true;
     if(d4==0&&on_segment(p1,p2,p4))return true;
     return false;

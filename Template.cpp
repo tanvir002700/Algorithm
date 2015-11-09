@@ -102,6 +102,13 @@ template<class T> T MAX3(T a,T b,T c) {return max(a,max(b,c));} ///maximum of 3 
 template <class T> void print_vector(T &v){int sz=v.size();if(sz)cout<<v[0];for(int i = 1; i < sz; i++)cout << ' '<<v[i];cout<<"\n";}/// prints all elements in a vector
 bool isVowel(char ch){ ch=toupper(ch); if(ch=='A'||ch=='U'||ch=='I'||ch=='O'||ch=='E') return true; return false;}
 bool isConsonant(char ch){if (isalpha(ch) && !isVowel(ch)) return true; return false;}}
+
+namespace debug{
+    int sum(){return 0;}
+    template<typename T,typename... Args> T sum(T a,Args... args) {return a+sum(args...);}
+    void print(){cout<<"\n";return;}template<typename T, typename... Args>void print(T a,Args... args){cout<<a<<" ";print(args...);}
+}
+
 /**Shortcut input function**/
 int read_int(){int n;scanf("%d",&n);return n;}
 int read_LLD(){LLD n;scanf("%lld",&n);return n;}
@@ -121,5 +128,6 @@ int main()
     #ifdef _ANICK_
     //f_input;
     #endif // _ANICK_
+
     return 0;
 }

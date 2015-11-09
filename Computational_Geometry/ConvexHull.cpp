@@ -1,4 +1,12 @@
+typedef long long LLD;
+struct POINT
+{
+    double x,y;
+    POINT(LLD x=0,LLD y=0):x(x),y(y){};
+};
+
 POINT P0;
+
 int area2(POINT p0,POINT p1,POINT p2)
 {
     return (p2.x-p0.x)*(p1.y-p0.y)-(p1.x-p0.x)*(p2.y-p0.y);
@@ -7,11 +15,26 @@ int dist2(POINT a,POINT b)
 {
     int dx=a.x-b.x,dy=a.y-b.y;return dx*dx+dy*dy;
 }
+
+///Compare version 1
 bool angle_comp(POINT a,POINT b)
 {
     if(area2(P0,a,b)<0)return true;
     else if(area2(P0,a,b)==0)return dist2(P0,a)<dist2(P0,b);
     return false;
+}
+
+///Compare version 2
+
+bool angle_comp2(POINT a,POINT b)
+{
+    if(area2(P0,a,b)==0)
+    {
+        return dist2(P0,a)<dist2(P0,b);
+    }
+    int d1x=a.x-P0.x,d1y=a.y-P0.y;
+    int d2x=b.x-P0.x,d2y=b.y-P0.y;
+    return (atan2((double)d1y,(double)d1x)-atan2((double)d2y,(double)d2x))<0;
 }
 
 vector<POINT> Find_convex_hull(vector<POINT>P)
