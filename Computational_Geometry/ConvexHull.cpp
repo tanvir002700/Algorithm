@@ -2,7 +2,7 @@ typedef long long LLD;
 struct POINT
 {
     double x,y;
-    POINT(LLD x=0,LLD y=0):x(x),y(y){};
+    POINT(LLD x=0,LLD y=0):x(x),y(y) {};
 };
 
 POINT P0;
@@ -13,7 +13,8 @@ int area2(POINT p0,POINT p1,POINT p2)
 }
 int dist2(POINT a,POINT b)
 {
-    int dx=a.x-b.x,dy=a.y-b.y;return dx*dx+dy*dy;
+    int dx=a.x-b.x,dy=a.y-b.y;
+    return dx*dx+dy*dy;
 }
 
 ///Compare version 1

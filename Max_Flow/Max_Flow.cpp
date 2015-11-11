@@ -30,7 +30,7 @@ bool augmenting_path(int source,int sink)
         int u=Q.front();
         Q.pop();
         int sz=graph[u].size();
-        for(int i=0;i<sz;i++)
+        for(int i=0; i<sz; i++)
         {
             int v=graph[u][i];
             if(parent[v]==-1 and Cost[u][v]>0)
@@ -73,9 +73,9 @@ int main()
         scanf("%d %d %d %d",&P,&S,&C,&M);
         init(P+S+5);
         int superSource=0,SuperSikn=P+S+1;
-        for(int i=1;i<=P;i++)AddEdge(superSource,i,1);
-        for(int i=1;i<=S;i++)AddEdge(P+1,SuperSikn,C);
-        for(int i=0;i<M;i++)
+        for(int i=1; i<=P; i++)AddEdge(superSource,i,1);
+        for(int i=1; i<=S; i++)AddEdge(P+1,SuperSikn,C);
+        for(int i=0; i<M; i++)
         {
             int x,y;
             scanf("%d %d",&x,&y);

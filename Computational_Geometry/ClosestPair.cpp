@@ -1,12 +1,20 @@
 const int MAX=100005;
-struct point{int x, y, i;};
+struct point
+{
+    int x, y, i;
+};
 point arr[MAX], sortedY[MAX];
 bool flag[MAX];
-template <class T> int getdist(T a, T b){return max(abs(a.x - b.x), abs(a.y - b.y));}
-bool compareX(const point &a, const point &b){
+template <class T> int getdist(T a, T b)
+{
+    return max(abs(a.x - b.x), abs(a.y - b.y));
+}
+bool compareX(const point &a, const point &b)
+{
     return a.x < b.x;
 }
-bool compareY(const point &a, const point &b){
+bool compareY(const point &a, const point &b)
+{
     return a.y < b.y;
 }
 

@@ -14,7 +14,7 @@ bool solve(int sum)
 {
     if(sum==0)return false;
     if(dp[sum]!=-1)return dp[sum];
-    for(int i=1;i<=k;i++)
+    for(int i=1; i<=k; i++)
     {
         if(is_valid(sum-Move[i]) and !solve(sum-Move[i]))return dp[sum]=true;
     }
@@ -25,7 +25,7 @@ int main()
     while(scanf("%d",&n)==1)
     {
         scanf("%d",&k);
-        for(int i=1;i<=k;i++)
+        for(int i=1; i<=k; i++)
         {
             scanf("%d",&Move[i]);
         }

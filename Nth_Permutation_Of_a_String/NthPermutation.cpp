@@ -8,12 +8,12 @@ string S;
 void FACTORIAL()
 {
     FAC[0]=1;
-    for(int i=1;i<=20;i++)FAC[i]=FAC[i-1]*i;
+    for(int i=1; i<=20; i++)FAC[i]=FAC[i-1]*i;
 }
 LLD Permutation(int n)
 {
     LLD per=FAC[n];
-    for(int i=0;i<26;i++)per/=FAC[Freq[i]];
+    for(int i=0; i<26; i++)per/=FAC[Freq[i]];
     return per;
 }
 string NthPermutation(int nth)
@@ -23,7 +23,7 @@ string NthPermutation(int nth)
     while(len)
     {
         LLD upto=0;
-        for(int i=0;i<26;i++)
+        for(int i=0; i<26; i++)
         {
             if(Freq[i])
             {
@@ -51,14 +51,14 @@ int main()
     FACTORIAL();
     int test;
     scanf("%d",&test);
-    for(int t=1;t<=test;t++)
+    for(int t=1; t<=test; t++)
     {
         mem(Freq,0);
         char inp[100];
         LLD Nth;
         scanf("%s %lld",inp,&Nth);
         S=inp;
-        for(int i=0;inp[i];i++)Freq[inp[i]-'a']++;
+        for(int i=0; inp[i]; i++)Freq[inp[i]-'a']++;
         string Ans="Impossible";
         if(Permutation(S.size())>=Nth)
         {

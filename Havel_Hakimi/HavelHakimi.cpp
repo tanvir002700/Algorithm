@@ -1,8 +1,3 @@
-/**
-    Given N degree d1,d2,d3.....dn. Is it possible to make a graph which have no cycle and
-    different two node will be connected with one Edge?
-
-**/
 #include<stdio.h>
 #include<queue>
 #include<vector>
@@ -15,7 +10,7 @@ int main()
         priority_queue<int>Q;
         bool Ok=true;
         int Odd_Node=0;
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             int x;
             scanf("%d",&x);
@@ -24,12 +19,12 @@ int main()
             Q.push(x);
         }
         Ok&=(Odd_Node%2==0); ///Handshaking Theorem
-        for(int i=0;i<N and Ok;i++)
+        for(int i=0; i<N and Ok; i++)
         {
             int k=Q.top();
             Q.pop();
             vector<int> v;
-            for(int j=0;j<k and Ok;j++)
+            for(int j=0; j<k and Ok; j++)
             {
                 int x=Q.top();
                 Q.pop();
@@ -37,7 +32,7 @@ int main()
                 Ok&=(x>=0);
                 v.push_back(x);
             }
-            for(int j=0;j<k and Ok;j++)
+            for(int j=0; j<k and Ok; j++)
             {
                 Q.push(v[j]);
             }

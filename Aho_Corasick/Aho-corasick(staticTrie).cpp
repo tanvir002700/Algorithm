@@ -25,7 +25,7 @@ struct Trie
             fail=-1;
             stringMap=0;
         }
-    }T[Max];
+    } T[Max];
     int ptr;
     void clear()
     {
@@ -35,7 +35,7 @@ struct Trie
     void Insert(char *str,int M)
     {
         int p=0;
-        for(int i=0;str[i];i++)
+        for(int i=0; str[i]; i++)
         {
             int id=getID(str[i]);
             if(T[p].Next[id]==-1)
@@ -57,7 +57,7 @@ struct Trie
         {
             u=Q.front();
             Q.pop();
-            for(int i=0;i<MC;i++)
+            for(int i=0; i<MC; i++)
             {
                 if(T[u].Next[i]!=NuLL)
                 {
@@ -82,7 +82,7 @@ struct Trie
 void AhoCorasick(const Trie &A, const char *str)
 {
     int p=root;
-    for(int i=0;str[i];i++)
+    for(int i=0; str[i]; i++)
     {
         int id=getID(str[i]);
         while(A.T[p].Next[id]==NuLL&&p!=root)p=A.T[p].fail;
@@ -98,12 +98,12 @@ void AhoCorasick(const Trie &A, const char *str)
 Trie A;
 int main()
 {
-    #ifdef _ANICK_
-        freopen("input.txt","r",stdin);
-    #endif // _ANICK_
+#ifdef _ANICK_
+    freopen("input.txt","r",stdin);
+#endif // _ANICK_
     int test;
     scanf("%d",&test);
-    for(int t=1;t<=test;t++)
+    for(int t=1; t<=test; t++)
     {
         Map.clear();
         v.clear();
@@ -113,7 +113,7 @@ int main()
         scanf("%d",&N);
         scanf("%s",text);
         int cnt=1;
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             scanf("%s",inp);
             if(Map.find(inp)==Map.end())Map[inp]=cnt++;
@@ -123,7 +123,7 @@ int main()
         A.ComputeFailure();
         AhoCorasick(A,text);
         printf("Case %d:\n",t);
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             printf("%d\n",ans[v[i]]);
         }

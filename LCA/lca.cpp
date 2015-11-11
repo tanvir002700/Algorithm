@@ -14,7 +14,7 @@ void dfs(int from,int u,int deep)
     Level[u]=deep;
     parents[u]=from;
     int sz=Graph[u].size();
-    for(int i=0;i<sz;i++)
+    for(int i=0; i<sz; i++)
     {
         int v=Graph[u][i].second;
         int c=Graph[u][i].first;
@@ -25,14 +25,14 @@ void dfs(int from,int u,int deep)
 }
 void Sparse(int N)
 {
-    for(int i=0;i<N;i++)
+    for(int i=0; i<N; i++)
     {
         sparse_cost[i][0]=Cost[i];
         sparse_table[i][0]=parents[i];
     }
-    for(int j=1;(1<<j)<N;j++)
+    for(int j=1; (1<<j)<N; j++)
     {
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             if(sparse_table[i][j-1]!=-1)
             {
@@ -48,7 +48,7 @@ int LCA(int p,int q)
     if(Level[p]<Level[q])swap(p,q);
     int Log=log2(Level[p])+1;
     int ans=0;
-    for(int i=Log;i>=0;i--)
+    for(int i=Log; i>=0; i--)
     {
         if((Level[p]-(1<<i))>=Level[q])
         {
@@ -57,7 +57,7 @@ int LCA(int p,int q)
         }
     }
     if(p==q)return ans;
-    for(int i=Log;i>=0;i--)
+    for(int i=Log; i>=0; i--)
     {
         if(sparse_table[p][i]!=-1&&sparse_table[p][i]!=sparse_table[q][i])
         {

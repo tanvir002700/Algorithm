@@ -20,14 +20,14 @@ vint ans;
 struct info
 {
     int u,v;
-    info(int u,int v):u(u),v(v){};
+    info(int u,int v):u(u),v(v) {};
 };
 vector<info>Edges;
 vint topsort;
 void init(int N)
 {
     Edges.clear();
-    for(int i=0;i<=3*N;i++)
+    for(int i=0; i<=3*N; i++)
     {
         Graph1[i].clear();
         Graph2[i].clear();
@@ -36,7 +36,7 @@ void init(int N)
 void construct_graph(int N)
 {
     int sz=Edges.size();
-    for(int i=0;i<sz;i++)
+    for(int i=0; i<sz; i++)
     {
         int u=Edges[i].u;
         int v=Edges[i].v;
@@ -72,7 +72,7 @@ void dfs(int u)
     if(visit[u])return;
     visit[u]=true;
     int sz=Graph1[u].size();
-    for(int i=0;i<sz;i++)
+    for(int i=0; i<sz; i++)
     {
         int v=Graph1[u][i];
         dfs(v);
@@ -85,7 +85,7 @@ void dfs2(int u,int Rank)
     visit[u]=true;
     color[u]=Rank;
     int sz=Graph2[u].size();
-    for(int i=0;i<sz;i++)
+    for(int i=0; i<sz; i++)
     {
         int v=Graph2[u][i];
         dfs2(v,Rank);
@@ -95,20 +95,20 @@ void SCC(int N)
 {
     topsort.clear();
     mem(visit,false);
-    for(int i=2;i<=2*N+1;i++)
+    for(int i=2; i<=2*N+1; i++)
     {
         if(visit[i]==false)dfs(i);
     }
     int r=1;
     mem(visit,false);
-    for(int i=topsort.size()-1;i>=0;i--)
+    for(int i=topsort.size()-1; i>=0; i--)
     {
         if(visit[topsort[i]]==false)dfs2(topsort[i],r++);
     }
 }
 bool is2satpossible(int N)
 {
-    for(int i=1;i<=N;i++)
+    for(int i=1; i<=N; i++)
     {
         int a=2*i;
         int acomp=2*i+1;
@@ -119,7 +119,7 @@ bool is2satpossible(int N)
 void solution(int N)
 {
     ans.clear();
-    for(int i=1;i<=N;i++)
+    for(int i=1; i<=N; i++)
     {
         int a=2*i;
         int acomp=2*i+1;
@@ -130,12 +130,12 @@ int main()
 {
     int test;
     scanf("%d",&test);
-    for(int t=1;t<=test;t++)
+    for(int t=1; t<=test; t++)
     {
         int M,N;
         scanf("%d %d",&M,&N);
         init(N);
-        for(int i=0;i<M;i++)
+        for(int i=0; i<M; i++)
         {
             int u,v;
             scanf("%d %d",&u,&v);
@@ -150,7 +150,7 @@ int main()
             solution(N);
             int sz=ans.size();
             printf("%d",sz);
-            for(int i=0;i<sz;i++)printf(" %d",ans[i]);
+            for(int i=0; i<sz; i++)printf(" %d",ans[i]);
             printf("\n");
         }
         else cout<<"No"<<endl;

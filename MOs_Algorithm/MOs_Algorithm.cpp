@@ -24,13 +24,13 @@ int Freq[MxNum],Num[Mx];
 struct info
 {
     int L,R,qno;
-    info(int L=0,int R=0,int qno=0):L(L),R(R),qno(qno){};
+    info(int L=0,int R=0,int qno=0):L(L),R(R),qno(qno) {};
     bool operator<(const info &a)const
     {
         if(L/BlockSize!=a.L/BlockSize)return L/BlockSize<a.L/BlockSize;
         return R<a.R;
     }
-}Query[200005];
+} Query[200005];
 int StoreAnswer[200005];
 void Add(int indx)
 {
@@ -47,13 +47,13 @@ int main()
     int N;
     scanf("%d",&N);
     BlockSize=sqrt(N);
-    for(int i=0;i<N;i++)
+    for(int i=0; i<N; i++)
     {
         scanf("%d",&Num[i]);
     }
     int Q;
     scanf("%d",&Q);
-    for(int i=0;i<Q;i++)
+    for(int i=0; i<Q; i++)
     {
         int x,y;
         scanf("%d %d",&x,&y);
@@ -62,7 +62,7 @@ int main()
     sort(Query,Query+Q);
     int currentL=0,currentR=0;
     Answer=0;
-    for(int i=0;i<Q;i++)
+    for(int i=0; i<Q; i++)
     {
         int L=Query[i].L;
         int R=Query[i].R;
@@ -88,7 +88,7 @@ int main()
         }
         StoreAnswer[Query[i].qno]=Answer;
     }
-    for(int i=0;i<Q;i++)
+    for(int i=0; i<Q; i++)
     {
         printf("%d\n",StoreAnswer[i]);
     }

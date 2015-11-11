@@ -14,7 +14,7 @@ struct Trie
             word=false;
             memset(Next,-1,sizeof(Next));
         }
-    }T[Max];
+    } T[Max];
     int ptr;
     void clear()
     {
@@ -25,7 +25,7 @@ struct Trie
     void Insert(const char *str)
     {
         int p=0;
-        for(int i=0;str[i];i++)
+        for(int i=0; str[i]; i++)
         {
             int id=getId(str[i]);
             if(T[p].Next[id]<=0)
@@ -40,7 +40,7 @@ struct Trie
     bool Search(const char *str)
     {
         int p=0;
-        for(int i=0;str[i];i++)
+        for(int i=0; str[i]; i++)
         {
             int id=getId(str[i]);
             if(T[p].Next[id]>0)

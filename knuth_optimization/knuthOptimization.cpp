@@ -8,14 +8,14 @@ int main()
     int N;
     while(scanf("%d",&N)==1)
     {
-        for(int i=1;i<=N;i++)
+        for(int i=1; i<=N; i++)
         {
             scanf("%d",&Csum[i]);
             Csum[i]+=Csum[i-1];
         }
-        for(int L=1;L<=N;L++)
+        for(int L=1; L<=N; L++)
         {
-            for(int i=1;i<=N;i++)
+            for(int i=1; i<=N; i++)
             {
                 int j=L+i-1;
                 if(j>N)continue;
@@ -27,7 +27,7 @@ int main()
                 else
                 {
                     dp[i][j]=(1<<28);
-                    for(int k=positionK[i][j-1];k<=positionK[i+1][j];k++)
+                    for(int k=positionK[i][j-1]; k<=positionK[i+1][j]; k++)
                     {
                         int cost=dp[i][k-1];
                         cost+=dp[k+1][j];

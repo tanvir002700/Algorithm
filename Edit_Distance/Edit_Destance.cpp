@@ -25,7 +25,7 @@ void pathPrint(int i,int j,int del,int ins,int st)
     if(i==N&&j==M) return ;
     if(i==N)
     {
-        for(int k=j;k<M;k++,i++)
+        for(int k=j; k<M; k++,i++)
         {
             printf("%d Insert %d,%c\n",st++,i-del+1+ins,S2[k]);
         }
@@ -33,7 +33,7 @@ void pathPrint(int i,int j,int del,int ins,int st)
     }
     if(j==M)
     {
-        for(;i<N;i++)
+        for(; i<N; i++)
         {
             printf("%d Delete %d\n",st++,i-del+1+ins);
             del++;

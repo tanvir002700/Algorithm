@@ -1,6 +1,6 @@
 int GetMaxArea(int *hist,int n)
 {
-     stack<int> s;
+    stack<int> s;
 
     int max_area = 0;
     int tp;

@@ -1,5 +1,4 @@
-int find_divisor(int n)
-{
+int find_divisor(int n){
     int i,ans=1,count=1;
     while(n%2==0)
     {

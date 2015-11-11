@@ -11,8 +11,7 @@ int set_bit(int mask, int pos , int bit)
     mask += bit * more_bit[pos];
     return mask;
 }
-void init(void)
-{
+void init(void){
     more_bit[0] = 3;
     for(int i = 1; i < 10; i++) more_bit[i] = 3 * more_bit[i - 1];
 }

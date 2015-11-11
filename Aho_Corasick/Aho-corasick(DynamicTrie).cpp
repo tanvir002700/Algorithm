@@ -17,7 +17,7 @@ struct Trie
     Trie()
     {
         stringMap=0;
-        for(int i=0;i<Max;i++)next[i]=NULL;
+        for(int i=0; i<Max; i++)next[i]=NULL;
         fail=NULL;
     }
 };
@@ -25,7 +25,7 @@ Trie *root;
 void Insert(const char *str,int M)
 {
     Trie *p=root;
-    for(int i=0;str[i];i++)
+    for(int i=0; str[i]; i++)
     {
         int id=getID(str[i]);
         if(p->next[id]==NULL)p->next[id]=new Trie();
@@ -42,7 +42,7 @@ void computeFailure()
     {
         u=Q.front(); ///Take a new node
         Q.pop();
-        for(int i=0;i<Max;i++)
+        for(int i=0; i<Max; i++)
         {
             if(u->next[i]!=NULL) ///select fail position of ith node of parent u
             {
@@ -65,7 +65,7 @@ void computeFailure()
 void AhoCorasick(const char *str)
 {
     Trie *p=root;
-    for(int i=0;str[i];i++)
+    for(int i=0; str[i]; i++)
     {
         int id=getID(str[i]);
         while(p->next[id]==NULL&&p!=root)p=p->fail;
@@ -81,7 +81,7 @@ void AhoCorasick(const char *str)
 void Delete(Trie *u)
 {
     if(u==NULL)return;
-    for(int i=0;i<Max;i++)Delete(u->next[i]);
+    for(int i=0; i<Max; i++)Delete(u->next[i]);
     delete u;
 }
 
@@ -89,7 +89,7 @@ int main()
 {
     int test;
     scanf("%d",&test);
-    for(int t=1;t<=test;t++)
+    for(int t=1; t<=test; t++)
     {
         Map.clear();
         v.clear();
@@ -99,7 +99,7 @@ int main()
         scanf("%d",&N);
         scanf("%s",text);
         int cnt=1;
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             scanf("%s",inp);
             if(Map.find(inp)==Map.end())Map[inp]=cnt++;
@@ -109,7 +109,7 @@ int main()
         computeFailure();
         AhoCorasick(text);
         printf("Case %d:\n",t);
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             printf("%d\n",ans[v[i]]);
         }

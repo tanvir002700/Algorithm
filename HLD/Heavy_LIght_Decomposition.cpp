@@ -6,7 +6,7 @@ const int Max=10000;
 struct info
 {
     int v,cost;
-    info(int v=0,int cost=0):v(v),cost(cost){};
+    info(int v=0,int cost=0):v(v),cost(cost) {};
 };
 vector<pp>edges;
 vector<info>Graph[Max+5];
@@ -16,10 +16,10 @@ int Level[Max+5],Parent[Max+5],SparseTable[Max+5][16];
 int ptr;
 void init(int N)
 {
-    for(int i=0;i<=N;i++)
+    for(int i=0; i<=N; i++)
     {
         Graph[i].clear(),ChainHead[i]=-1;
-        for(int j=0;j<=15;j++)SparseTable[i][j]=-1;
+        for(int j=0; j<=15; j++)SparseTable[i][j]=-1;
     }
     edges.clear();
     ptr=ChainNo=0;
@@ -70,7 +70,7 @@ void dfs(int from,int u,int depth)
     Parent[u]=from;
     SubTreeSize[u]=1;
     int sz=Graph[u].size();
-    for(int i=0;i<sz;i++)
+    for(int i=0; i<sz; i++)
     {
         int v=Graph[u][i].v;
         if(v==from)continue;
@@ -80,10 +80,10 @@ void dfs(int from,int u,int depth)
 }
 void sparseTable(int N)
 {
-    for(int i=0;i<=N;i++)SparseTable[i][0]=Parent[i];
-    for(int j=1;(1<<j)<=N;j++)
+    for(int i=0; i<=N; i++)SparseTable[i][0]=Parent[i];
+    for(int j=1; (1<<j)<=N; j++)
     {
-        for(int i=0;i<=N;i++)
+        for(int i=0; i<=N; i++)
         {
             if(SparseTable[i][j-1]!=-1)
             {
@@ -97,12 +97,12 @@ int LCA(int p,int q)
 {
     if(Level[p]<Level[q])swap(p,q);
     int Log=log2(Level[p])+1;
-    for(int i=Log;i>=0;i--)
+    for(int i=Log; i>=0; i--)
     {
         if((Level[p]-(1<<i))>=Level[q])p=SparseTable[p][i];
     }
     if(p==q)return p;
-    for(int i=Log;i>=0;i--)
+    for(int i=Log; i>=0; i--)
     {
         if(SparseTable[p][i]!=-1&&SparseTable[p][i]!=SparseTable[q][i])
         {
@@ -130,7 +130,7 @@ void heavyLightDecompositon(int from,int curNode,int cost)
     BaseArray[ptr++]=cost;
     int sc=-1,nextCost;
     int sz=Graph[curNode].size();
-    for(int i=0;i<sz;i++)  /// Loop to find special child
+    for(int i=0; i<sz; i++) /// Loop to find special child
     {
         int v=Graph[curNode][i].v;
         if(v==from)continue;
@@ -141,7 +141,7 @@ void heavyLightDecompositon(int from,int curNode,int cost)
         }
     }
     if(sc!=-1)heavyLightDecompositon(curNode,sc,nextCost); /// Expand the chain
-    for(int i=0;i<sz;i++)
+    for(int i=0; i<sz; i++)
     {
         int v=Graph[curNode][i].v;
         int cost=Graph[curNode][i].cost;
@@ -180,7 +180,7 @@ int queryUp(int u,int v)
         }
         int uchainhead=ChainHead[uchain];
         ans=max(ans,querySegmentTree(0,ptr-1,1,PosInBaseArray[uchainhead],PosInBaseArray[u]));
-                    /// Above is call to segment tree query function. We do from chainHead of u till u. That is the whole chain from
+        /// Above is call to segment tree query function. We do from chainHead of u till u. That is the whole chain from
         u=Parent[uchainhead];
     }
     return ans;
@@ -199,7 +199,7 @@ int main()
         int N;
         cin>>N;
         init(N);
-        for(int i=0;i<N-1;i++)
+        for(int i=0; i<N-1; i++)
         {
             int u,v,c;
             cin>>u>>v>>c;

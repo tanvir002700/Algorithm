@@ -18,8 +18,10 @@ int trun(point p0,point p1,point p2)
 }
 bool on_segment(point pi,point pj,point pk)
 {
-    int minx=min(pi.x,pj.x);int maxx=max(pi.x,pj.x);
-    int miny=min(pi.y,pj.y);int maxy=max(pi.y,pj.y);
+    int minx=min(pi.x,pj.x);
+    int maxx=max(pi.x,pj.x);
+    int miny=min(pi.y,pj.y);
+    int maxy=max(pi.y,pj.y);
     if(pk.x>=minx&&pk.x<=maxx&&pk.y>=miny&&pk.y<=maxy)return true;
     return false;
 }
@@ -40,7 +42,7 @@ bool in_poligon(vector<point>p,point given,point inf2)
 {
     int intersect=0;
     int N=p.size();
-    for(int i=0;i<N;i++)
+    for(int i=0; i<N; i++)
     {
         point p1=p[i];
         point p2=p[(i+1)%N];
@@ -58,7 +60,7 @@ int main()
     {
         int Max=-10005;
         vector<point>poligon;
-        for(int i=0;i<N;i++)
+        for(int i=0; i<N; i++)
         {
             int x,y;
             scanf("%d %d",&x,&y);

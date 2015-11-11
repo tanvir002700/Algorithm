@@ -6,7 +6,7 @@ void stable_marage(int N)
 {
     mem(Husband,-1);
     queue<int>freeman;
-    for(int i=1;i<=N;i++)freeman.push(i);
+    for(int i=1; i<=N; i++)freeman.push(i);
     while(!freeman.empty())
     {
         int man=freeman.front();

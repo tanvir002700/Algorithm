@@ -6,7 +6,7 @@ void prepare_string()
 {
     int i;
     t="^#";
-    for(i=0;i<s.size();i++)
+    for(i=0; i<s.size(); i++)
         t+=s[i],t+="#";
     t+="$";
 }
@@ -15,7 +15,7 @@ int manacher()
 {
     prepare_string();
     int P[t.size()],c=0,r=0,i,i_mirror,n=t.size()-1;
-    for(i=1;i<n;i++)
+    for(i=1; i<n; i++)
     {
         i_mirror=(2*c)-i;
         P[i]=r>i?min(r-i,P[i_mirror]):0;

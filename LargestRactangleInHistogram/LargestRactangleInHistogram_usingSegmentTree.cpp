@@ -3,12 +3,15 @@ using namespace std;
 #define MN 1000005
 typedef long long LLD;
 LLD Histogram[MN],N;
-template<class T> T MAX3(T a,T b,T c) {return max(a,max(b,c));} ///maximum of 3 number
+template<class T> T MAX3(T a,T b,T c)
+{
+    return max(a,max(b,c));   ///maximum of 3 number
+}
 struct info
 {
     int Num;
     int pos;
-    info(int Num=0,int pos=0):Num(Num),pos(pos){};
+    info(int Num=0,int pos=0):Num(Num),pos(pos) {};
 };
 info Tree[3*MN];
 info marge(const info &L,const info &R)
@@ -50,7 +53,7 @@ int main()
 {
     while(scanf("%d",&N) and N)
     {
-        for(int i=1;i<=N;i++)scanf("%lld",&Histogram[i]);
+        for(int i=1; i<=N; i++)scanf("%lld",&Histogram[i]);
         build(1,N,1);
         printf("%lld\n",GetMaximumArea(1,N));
     }

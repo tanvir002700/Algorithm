@@ -27,9 +27,4 @@ void sieve()
         }
     }
 }
-int main()
-{
-    sieve();
-    return 0;
-}
 
