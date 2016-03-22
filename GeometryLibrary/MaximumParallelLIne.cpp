@@ -1,3 +1,7 @@
+/*
+    Given N Line In A*x+By+C format.
+    Find out maximum parallel group of distinct line.
+ */
 #include<cstdio>
 #include<algorithm>
 #include<map>
