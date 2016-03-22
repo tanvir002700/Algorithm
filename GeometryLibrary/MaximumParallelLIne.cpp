@@ -1,5 +1,5 @@
 /*
-    Given N Line In A*x+By+C format.
+    Given N Line In A*x+By+C=0 format.
     Find out maximum parallel group of distinct line.
  */
 #include<cstdio>
