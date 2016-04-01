@@ -128,6 +128,14 @@ int main()
     #ifdef _ANICK_
     //f_input;
     #endif // _ANICK_
+    double start_time = clock();
+    
 
+
+
+
+
+    double end_time = clock();
+    fprintf(stderr, "Time = %lf\n", (end_time-start_time)/CLOCKS_PER_SEC);
     return 0;
 }
